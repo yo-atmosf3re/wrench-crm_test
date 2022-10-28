@@ -6,6 +6,12 @@ body {
    margin: 0;
    font-family: "Montserrat";
 }
+:active,
+:hover,
+:focus {
+   outline: 0;
+   outline-offset: 0;
+}
 
 .wrapper {
    .header {
@@ -17,10 +23,19 @@ body {
       grid-template-columns: 300px 1fr;
       grid-template-rows: 1fr;
       grid-template-areas: "sidebar main";
+      @media (max-width: 768px) {
+         grid-template-columns: "main main";
+         grid-template-columns: 1fr;
+      }
       .container__main {
          .main__not-found {
             font-size: 40px;
             text-align: center;
+         }
+         .main__search {
+            @media (max-width: 768px) {
+               grid-area: main;
+            }
          }
       }
    }

@@ -12,8 +12,8 @@ const FirstPathSidebarTitleSelectors = [
    { title: 'Виджеты', id: 6, icon: <VidgetIcon />, url: 'vidgets' },
 ]
 const UserSettingTitleSelectors = [
-   { title: 'Настройки профиля', id: 8, icon: <UserIcon />, url: 'settings-profile' },
-   { title: 'Управление финансами', id: 9, icon: <FinMenIcon />, url: 'fin-managment' },
+   { title: 'Настройки профиля', id: 1, icon: <UserIcon />, url: 'settings-profile' },
+   { title: 'Управление финансами', id: 2, icon: <FinMenIcon />, url: 'fin-managment' },
 ]
 const SecondPathTitleSelectors = [
    { title: 'Выход', id: 1, icon: <ExitIcon />, url: 'exit' }
@@ -67,6 +67,7 @@ const Sidebar = () => {
                         }
                      </div>
                      <div className={active ? 'path-one__checkmark-true' : 'path-one__checkmark-false'}>
+                        {/* <div className={classnames(['path-one__checkmark-false'], active, 'path-one__checkmark-true')}> */}
                         <CheckMarkIcon />
                      </div>
                   </div>

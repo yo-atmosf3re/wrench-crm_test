@@ -5,6 +5,9 @@
    font-style: normal;
    font-size: 20px;
    line-height: 24px;
+   @media (max-width: 768px) {
+      display: none;
+   }
    .sidebar__container {
       width: 248px;
       display: flex;
@@ -40,12 +43,17 @@
                padding: 8px 0 0 16px;
             }
             .path-one__checkmark-true {
+               transition: 0.5s ease-in-out;
                position: relative;
+               svg {
+                  transform: rotate(-180deg);
+               }
                top: 3px;
                right: 22px;
             }
             .path-one__checkmark-false {
                position: relative;
+               transition: 0.5s ease-in-out;
                top: 3px;
                left: 70px;
             }
