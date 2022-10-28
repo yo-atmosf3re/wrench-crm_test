@@ -1,0 +1,35 @@
+.header {
+   width: 100%;
+   background-color: #4f27bf;
+   height: 80px;
+   color: white;
+   font-style: normal;
+   font-weight: 700;
+   font-size: 20px;
+   line-height: 24px;
+   position: fixed;
+   z-index: 10;
+   .header__container {
+      display: flex;
+      justify-content: space-between;
+      padding: 16px 32px;
+      .container__logo-title {
+         display: flex;
+         align-items: center;
+         .logo-title__logo {
+         }
+         .logo-title__title {
+            margin: 0 0 0 24px;
+         }
+      }
+      .container__auth-block {
+         display: flex;
+         align-items: center;
+         .auth-block__logo {
+            margin: 0 16px 0 0;
+         }
+         .auth-block__user-name {
+         }
+      }
+   }
+}
