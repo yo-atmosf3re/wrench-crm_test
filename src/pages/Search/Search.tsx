@@ -2,6 +2,7 @@ import React, { ChangeEvent, useCallback, useEffect, useRef, useState } from 're
 import { WhiteSearchIcon } from '../../assets/svg/SearchIconFromButton'
 import axios from 'axios'
 import debounce from 'lodash.debounce';
+import { SVG_PATH, universalSvg } from '../../utils/universalSvg';
 
 const url = "https://suggestions.dadata.ru/suggestions/api/4_1/rs/suggest/address";
 const token = "3815df32b28623d15cde2b203d0791cbfa06b5a0";
@@ -25,15 +26,15 @@ export interface SuggestionsType {
 }
 
 const Search = () => {
-  const [suggestions, setSuggestions] = useState<any>('Loading');
-  useEffect(() => {
-    (async () => {
-      fetch(url, options as any)
-        .then(response => response.json())
-        .then(data => setSuggestions(data))
-        .catch(error => console.log(error))
-    })()
-  }, [])
+  // const [suggestions, setSuggestions] = useState<any>('Loading');
+  // useEffect(() => {
+  //   (async () => {
+  //     fetch(url, options as any)
+  //       .then(response => response.json())
+  //       .then(data => setSuggestions(data))
+  //       .catch(error => console.log(error))
+  //   })()
+  // }, [])
 
   const [inputText, setInputText] = useState('')
   const inputHandler = (e: ChangeEvent<HTMLInputElement>) => {
@@ -61,7 +62,7 @@ const Search = () => {
           placeholder='Введите интересующий вас адрес'
           className="input-block__field" />
         <button className='input-block__button'>
-          <WhiteSearchIcon />
+
           <p>Поиск</p>
         </button>
       </div>

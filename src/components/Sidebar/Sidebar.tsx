@@ -1,29 +1,27 @@
 import React, { useState } from 'react'
-import { CalendarIcon, ExitIcon, FinMenIcon, HomeIcon, MapIcon, SearchIcon, SettingsIcon, UserIcon, VidgetIcon, TableIcon } from '../../assets/svg';
-import { CheckMarkIcon } from '../../assets/svg/ChekMark';
 import { Link } from 'react-router-dom'
+import { CheckMarkIcon } from '../../assets/svg/ChekMark';
+import { SVG_PATH, universalSvg } from '../../utils/universalSvg';
 
 const FirstPathSidebarTitleSelectors = [
-   { title: 'Главная', id: 1, icon: <HomeIcon />, url: 'home-page' },
-   { title: 'Поиск адресов', id: 2, icon: <SearchIcon />, url: 'search-address' },
-   { title: 'Таблицы', id: 3, icon: <TableIcon />, url: 'table' },
-   { title: 'Календарь', id: 4, icon: <CalendarIcon />, url: 'calendar' },
-   { title: 'Карты', id: 5, icon: <MapIcon />, url: 'map' },
-   { title: 'Виджеты', id: 6, icon: <VidgetIcon />, url: 'vidgets' },
+   { title: 'Главная', id: 1, icon: universalSvg(SVG_PATH.HOME_ICON_P1, SVG_PATH.HOME_ICON_P2), url: 'home-page' },
+   { title: 'Поиск адресов', id: 2, icon: universalSvg(SVG_PATH.SEARCH_ICON), url: 'search-address' },
+   { title: 'Таблицы', id: 3, icon: universalSvg(SVG_PATH.TABLE_ICON), url: 'table' },
+   { title: 'Календарь', id: 4, icon: universalSvg(SVG_PATH.CALENDAR_ICON_P1, SVG_PATH.CALENDAR_ICON_P2), url: 'calendar' },
+   { title: 'Карты', id: 5, icon: universalSvg(SVG_PATH.MAP_ICON), url: 'map' },
+   { title: 'Виджеты', id: 6, icon: universalSvg(SVG_PATH.VIDGET_ICON), url: 'vidgets' },
 ]
 const UserSettingTitleSelectors = [
-   { title: 'Настройки профиля', id: 1, icon: <UserIcon />, url: 'settings-profile' },
-   { title: 'Управление финансами', id: 2, icon: <FinMenIcon />, url: 'fin-managment' },
+   { title: 'Настройки профиля', id: 1, icon: universalSvg(SVG_PATH.SETTINGS_ICON), url: 'settings-profile' },
+   { title: 'Управление финансами', id: 2, icon: universalSvg(SVG_PATH.FINMIN_ICON), url: 'fin-managment' },
 ]
 const SecondPathTitleSelectors = [
-   { title: 'Выход', id: 1, icon: <ExitIcon />, url: 'exit' }
+   { title: 'Выход', id: 1, icon: universalSvg(SVG_PATH.EXIT_ICON), url: 'exit' }
 ]
 const RemoveStyleLink = {
    textDecoration: 'none',
    color: 'inherit'
 }
-
-
 
 const Sidebar = () => {
    const [active, setActive] = useState(false)
@@ -50,7 +48,7 @@ const Sidebar = () => {
                {
                   <div className='sidebar-list__path-one'>
                      <div className="path-one__logo">
-                        <SettingsIcon />
+                        {universalSvg(SVG_PATH.SETTINGS_ICON)}
                      </div>
                      <div onClick={onClickSetActive} className="path-one__middle-text">
                         Настройки
