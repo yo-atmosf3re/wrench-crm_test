@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { CheckMarkIcon } from '../../assets/svg/ChekMark';
+import { CheckMarkIcon } from '../../assets/svg/ChekMarkIcon';
+import { classnames } from '../../utils/classnames';
 import { SVG_PATH, universalSvg } from '../../utils/universalSvg';
 
 const FirstPathSidebarTitleSelectors = [
@@ -64,8 +65,8 @@ const Sidebar = () => {
                            )
                         }
                      </div>
-                     <div className={active ? 'path-one__checkmark-true' : 'path-one__checkmark-false'}>
-                        {/* <div className={classnames(['path-one__checkmark-false'], active, 'path-one__checkmark-true')}> */}
+                     {/* <div className={active ? 'path-one__checkmark-true' : 'path-one__checkmark-false'}> */}
+                     <div className={classnames(['path-one__checkmark'], active, '-active')}>
                         <CheckMarkIcon />
                      </div>
                   </div>

@@ -1,6 +1,5 @@
-import { UserIcon } from "./User";
+import { UserIcon } from "./UserIcon";
 import { UserIconFromHeader } from "./UserIconFromHeader";
-import { WrenchIcon } from "./Wrench";
-import { WhiteSearchIcon } from './SearchIconFromButton'
+import { WrenchIcon } from "./WrenchIcon";
 
-export { UserIcon, UserIconFromHeader, WrenchIcon, WhiteSearchIcon }
+export { UserIcon, UserIconFromHeader, WrenchIcon }

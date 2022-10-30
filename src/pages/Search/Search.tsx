@@ -62,7 +62,7 @@ const Search = () => {
           placeholder='Введите интересующий вас адрес'
           className="input-block__field" />
         <button className='input-block__button'>
-
+          {universalSvg(SVG_PATH.SEARCH_BUTTON_ICON, ' ', '#ffffff')}
           <p>Поиск</p>
         </button>
       </div>

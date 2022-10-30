@@ -42,7 +42,13 @@
                align-self: center;
                padding: 8px 0 0 16px;
             }
-            .path-one__checkmark-true {
+            .path-one__checkmark {
+               position: relative;
+               transition: 0.5s ease-in-out;
+               top: 3px;
+               left: 70px;
+            }
+            .path-one__checkmark-active {
                transition: 0.5s ease-in-out;
                position: relative;
                svg {
@@ -50,12 +56,6 @@
                }
                top: 3px;
                right: 22px;
-            }
-            .path-one__checkmark-false {
-               position: relative;
-               transition: 0.5s ease-in-out;
-               top: 3px;
-               left: 70px;
             }
          }
          .sidebar-list__path-two {
