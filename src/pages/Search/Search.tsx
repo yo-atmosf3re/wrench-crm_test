@@ -1,7 +1,4 @@
-import React, { ChangeEvent, useCallback, useEffect, useRef, useState } from 'react'
-import { WhiteSearchIcon } from '../../assets/svg/SearchIconFromButton'
-import axios from 'axios'
-import debounce from 'lodash.debounce';
+import React, { ChangeEvent, useCallback, useState } from 'react'
 import { SVG_PATH, universalSvg } from '../../utils/universalSvg';
 
 const url = "https://suggestions.dadata.ru/suggestions/api/4_1/rs/suggest/address";
@@ -38,14 +35,8 @@ const Search = () => {
 
   const [inputText, setInputText] = useState('')
   const inputHandler = (e: ChangeEvent<HTMLInputElement>) => {
-    setInputText(e.target.value.toLowerCase());
-    updateInputText(e.currentTarget.value)
+    setInputText(e.target.value);
   };
-  const updateInputText = useCallback(debounce((str) => {
-    setInputText(str)
-  }, 1000),
-    []
-  )
 
   return (
     <div className='main__search'>
@@ -62,7 +53,7 @@ const Search = () => {
           placeholder='Введите интересующий вас адрес'
           className="input-block__field" />
         <button className='input-block__button'>
-          {universalSvg(SVG_PATH.SEARCH_BUTTON_ICON, ' ', '#ffffff')}
+          {universalSvg(SVG_PATH.SEARCH_BUTTON_ICON, '#ffffff')}
           <p>Поиск</p>
         </button>
       </div>

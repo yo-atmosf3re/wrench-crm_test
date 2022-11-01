@@ -1,15 +1,11 @@
 import React from 'react'
 
-export const universalSvg = (path: string, rest?: string, color?: string) => {
+export const universalSvg = (...rest: string[]) => {
+   const color = rest.find(c => c.length === 7)
    return (
       <svg width='32' height='32' viewBox='0 0 32 32' fill='none' xmlns='http://www.w3.org/2000/svg'>
-         <path d={path} fill={color || '#1C1C1E'} />
          {
-            rest &&
-            <path
-               d={rest}
-               fill={color || '#1C1C1E'}
-            />
+            rest.map(s => <path d={s} fill={color || '#1C1C1E'} />)
          }
       </svg>
    )
