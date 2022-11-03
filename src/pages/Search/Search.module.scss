@@ -2,6 +2,9 @@
    font-style: normal;
    display: flex;
    flex-direction: column;
+   @media (max-width: 768px) {
+      padding-right: 28px;
+   }
    .search__block-title {
       font-weight: 700;
       font-size: 26px;
@@ -60,12 +63,13 @@
       }
    }
    .search__address-block {
-      max-width: 1076px;
+      max-width: 1076.02px;
+      min-width: 460px;
       font-style: normal;
       margin-top: 32px;
       box-shadow: 0px 2px 8px rgba(2, 0, 97, 0.25);
       border-radius: 10px;
-      padding: 24px 24px 0 24px;
+      padding: 24px 0px 0 24px;
       .address-block__title {
          font-weight: 700;
          font-size: 26px;
@@ -76,6 +80,9 @@
       }
       .address-block__search-result {
          div:last-child {
+            border: none;
+         }
+         div:first-child {
             border: none;
          }
          .search-result__item {

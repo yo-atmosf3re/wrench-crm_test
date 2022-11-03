@@ -22,10 +22,12 @@ body {
       grid-template-rows: 1fr;
       grid-template-areas: "sidebar main";
       @media (max-width: 768px) {
-         grid-template-columns: "main main";
+         grid-template-areas: "main main";
          grid-template-columns: 1fr;
       }
       .container__main {
+         grid-area: main;
+         padding: 32px 28px 10px 32px;
          .main__not-found {
             font-size: 40px;
             text-align: center;

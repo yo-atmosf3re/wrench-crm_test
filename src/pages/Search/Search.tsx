@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useState } from 'react'
+import React, { ChangeEvent, FormEvent, useCallback, useState } from 'react'
 import { SVG_PATH, universalSvg } from '../../utils/universalSvg';
 
 const Url = "https://suggestions.dadata.ru/suggestions/api/4_1/rs/suggest/address";
@@ -35,7 +35,7 @@ const Search = () => {
       console.log(error)
     }
   }
-
+  console.log(suggestions, 'v2')
   return (
     <div className='main__search'>
       <div className="search__block-title">
@@ -44,7 +44,7 @@ const Search = () => {
       <div className="search__block-description">
         Введите интересующий вас адрес
       </div>
-      <div className="search__input-block">
+      <form className="search__input-block">
         <input
           value={inputText}
           onChange={inputHandler}
@@ -56,12 +56,16 @@ const Search = () => {
           {universalSvg(SVG_PATH.SEARCH_BUTTON_ICON, '#ffffff')}
           <p>Поиск</p>
         </button>
-      </div>
+      </form>
       <div className="search__address-block">
         <div className="address-block__title">Адреса</div>
         {
-          <div className="address-block__search-result">
-          </div>
+          // suggestions &&
+          // suggestions.map((a, i) => <div key={i} className="address-block__search-result">
+          //   {
+          //     a
+          //   }
+          // </div>)
         }
       </div>
     </div>
