@@ -31,9 +31,6 @@ body {
             text-align: center;
          }
          .main__search {
-            @media (max-width: 768px) {
-               grid-area: main;
-            }
          }
       }
    }
