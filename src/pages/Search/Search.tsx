@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useEffect, useState } from 'react'
+import React, { ChangeEvent, useState } from 'react'
 import { SVG_PATH, universalSvg } from '../../utils/universalSvg';
 import { Skeleton } from './Skeleton';
 
@@ -60,7 +60,7 @@ const Search = () => {
           placeholder='Введите интересующий вас адрес'
           className="input-block__field" />
         <button
-          disabled={inputText.length <= 3}
+          disabled={inputText.length <= 3 || !inputText}
           onClick={handleClick}
           className='input-block__button'>
           {universalSvg(SVG_PATH.SEARCH_BUTTON_ICON, '#ffffff')}
