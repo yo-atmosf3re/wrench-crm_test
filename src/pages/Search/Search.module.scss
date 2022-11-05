@@ -57,25 +57,28 @@
          &:active {
             transform: scale(0.95);
          }
+         &:disabled {
+            opacity: 0.75;
+            transform: none;
+         }
          svg {
             padding-right: 16px;
          }
       }
    }
    .search__address-block {
-      max-width: 1076.02px;
+      max-width: 1052.02px;
       min-width: 460px;
       font-style: normal;
       margin-top: 32px;
       box-shadow: 0px 2px 8px rgba(2, 0, 97, 0.25);
       border-radius: 10px;
-      padding: 24px 0px 0 24px;
+      padding: 24px 24px 0 24px;
       .address-block__title {
          font-weight: 700;
          font-size: 26px;
          line-height: 32px;
          width: 100%;
-         border-bottom: 1px solid #d7d7d7;
          padding-bottom: 16px;
       }
       .address-block__search-result {
@@ -83,10 +86,11 @@
             border: none;
          }
          div:first-child {
-            border: none;
+            border-top: 1px solid #d7d7d7;
          }
          .search-result__item {
             font-weight: 500;
+            height: 26px;
             font-size: 20px;
             line-height: 24px;
             padding: 16px 0;

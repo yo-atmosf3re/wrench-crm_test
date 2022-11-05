@@ -10,8 +10,8 @@ function App() {
   return (
     <Routes>
       <Route path='' element={<MainLayout />}>
-        <Route path='home-page' element={<Home />} />
-        <Route path='search-address' element={<Search />} />
+        <Route path='/' element={<Home />} />
+        <Route path='address' element={<Search />} />
         <Route path='*' element={
           <Suspense fallback={<div>Идёт загрузка...</div>}>
             <NotFound />

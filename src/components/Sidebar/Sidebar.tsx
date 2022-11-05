@@ -1,12 +1,13 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { CheckMarkIcon } from '../../assets/svg/ChekMarkIcon';
+import { RectangleIcon } from '../../assets/svg/RectangleIcon';
 import { classnames } from '../../utils/classnames';
 import { SVG_PATH, universalSvg } from '../../utils/universalSvg';
 
 const FirstPathSidebarTitleSelectors = [
-   { title: 'Главная', id: 1, icon: universalSvg(SVG_PATH.HOME_ICON_P1, SVG_PATH.HOME_ICON_P2), url: 'home-page' },
-   { title: 'Поиск адресов', id: 2, icon: universalSvg(SVG_PATH.SEARCH_ICON), url: 'search-address' },
+   { title: 'Главная', id: 1, icon: universalSvg(SVG_PATH.HOME_ICON_P1, SVG_PATH.HOME_ICON_P2), url: '/' },
+   { title: 'Поиск адресов', id: 2, icon: universalSvg(SVG_PATH.SEARCH_ICON), url: 'address' },
    { title: 'Таблицы', id: 3, icon: universalSvg(SVG_PATH.TABLE_ICON), url: 'table' },
    { title: 'Календарь', id: 4, icon: universalSvg(SVG_PATH.CALENDAR_ICON_P1, SVG_PATH.CALENDAR_ICON_P2), url: 'calendar' },
    { title: 'Карты', id: 5, icon: universalSvg(SVG_PATH.MAP_ICON), url: 'map' },
@@ -17,7 +18,7 @@ const UserSettingTitleSelectors = [
    { title: 'Управление финансами', id: 2, icon: universalSvg(SVG_PATH.FINMIN_ICON), url: 'fin-managment' },
 ]
 const SecondPathTitleSelectors = [
-   { title: 'Выход', id: 1, icon: universalSvg(SVG_PATH.EXIT_ICON), url: 'exit' }
+   { title: 'Выход', id: 8, icon: universalSvg(SVG_PATH.EXIT_ICON), url: 'exit' }
 ]
 const RemoveStyleLink = {
    textDecoration: 'none',
@@ -26,7 +27,12 @@ const RemoveStyleLink = {
 
 const Sidebar = () => {
    const [active, setActive] = useState(false)
-   const onClickSetActive = () => setActive(!active)
+   const [selected, setSelected] = useState(0)
+   const onClickSetActive = (id: number) => {
+      setActive(!active)
+      setSelected(id)
+   }
+   const onClickSetSelected = (id: number) => setSelected(id)
    return (
       <aside className='container__sidebar'>
          <div className="sidebar__container">
@@ -39,10 +45,13 @@ const Sidebar = () => {
                            {f.icon}
                         </div>
                         <Link style={RemoveStyleLink} to={f.url}>
-                           <div className="path-one__text">
+                           <div onClick={() => { onClickSetSelected(f.id) }} className="path-one__text">
                               {f.title}
                            </div>
                         </Link>
+                        <div className="path-one__rect">
+                           {selected === f.id && <RectangleIcon />}
+                        </div>
                      </div>
                   ))
                }
@@ -51,7 +60,7 @@ const Sidebar = () => {
                      <div className="path-one__logo">
                         {universalSvg(SVG_PATH.SETTINGS_ICON)}
                      </div>
-                     <div onClick={onClickSetActive} className="path-one__middle-text">
+                     <div onClick={() => { onClickSetActive(7) }} className="path-one__middle-text">
                         Настройки
                         {
                            active && UserSettingTitleSelectors.map((u, i) => (
@@ -65,9 +74,11 @@ const Sidebar = () => {
                            )
                         }
                      </div>
-                     {/* <div className={active ? 'path-one__checkmark-true' : 'path-one__checkmark-false'}> */}
                      <div className={classnames(['path-one__checkmark'], active, '-active')}>
                         <CheckMarkIcon />
+                     </div>
+                     <div className="path-one__rect">
+                        {selected === 7 && <RectangleIcon />}
                      </div>
                   </div>
                }
@@ -78,10 +89,13 @@ const Sidebar = () => {
                            {s.icon}
                         </div>
                         <Link style={RemoveStyleLink} to={s.url}>
-                           <div className="path-one__text">
+                           <div onClick={() => { onClickSetSelected(s.id) }} className="path-one__text">
                               {s.title}
                            </div>
                         </Link>
+                        <div className="path-one__rect">
+                           {selected === s.id && <RectangleIcon />}
+                        </div>
                      </div>
                   ))
                }

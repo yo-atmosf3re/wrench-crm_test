@@ -1,4 +1,5 @@
 .main__home {
+   position: relative;
    font-style: normal;
    font-weight: 500;
    font-size: 20px;
@@ -16,5 +17,10 @@
          padding-top: 24px;
          margin: 0;
       }
+   }
+   .home__big-rect {
+      position: absolute;
+      top: 80px;
+      right: -28.5px;
    }
 }
